@@ -1,0 +1,78 @@
+{% extends 'index.html' %}
+
+
+
+
+{% block content %}
+<div class="container px-4" style="padding-top:5%;">
+    <div class="row gx-5">
+        <div class="col">
+            <div class="p-3 border bg-light">Datos</div>
+            <div>
+
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Titulo: </strong> {{book.titulo}}</li>
+                    <li class="list-group-item"><strong>Categoria: </strong> {{book.categoria}}</li>
+                    <li class="list-group-item"><strong>Autor: </strong> {{book.autor}}</li>
+                    <li class="list-group-item"><strong>Sipnosis: </strong> {{book.sipnosis}}</li>
+
+                </ul>
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="p-3 border bg-light">Comentarios</div>
+            <div>
+
+                <ul class="list-group">
+                    {% for comentario in coments %}
+                    <li class="list-group-item"><strong>{{comentario.usuario}}: </strong> {{comentario.comentario}}</li>
+                    {% endfor %}
+
+
+                </ul>
+                <br>
+                <div>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-10">
+                                {{form.comentario}}
+
+                                <div style="visibility: hidden;">
+                                    {{form.usuario}}
+                                    {{form.libro}}
+                                </div>
+
+
+                            </div>
+
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Primary</button>
+                            </div>
+                            {{form.errors}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var user = "{{user.username}}";
+    console.log('User:' + user)
+
+    document.getElementById("id_usuario").value = user;
+</script>
+<script>
+
+    var libro = "{{book.id}}";
+    console.log('libro:' + libro)
+   
+    document.getElementById("id_libro").value = libro;
+</script>
+{% endblock %}

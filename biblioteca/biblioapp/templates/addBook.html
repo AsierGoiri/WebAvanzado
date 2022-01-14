@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+
+
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Titulo</label>
+        {{form.titulo}}
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Sipnosis</label>
+        {{form.sipnosis}}
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Categoria</label>
+        {{form.categoria}}
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Author</label>
+        {{form.autor}}
+    </div>
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{form.errors}}
+      </div>
+      {% endif %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+{% endblock %}
