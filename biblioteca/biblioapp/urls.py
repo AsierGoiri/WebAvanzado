@@ -11,4 +11,6 @@ urlpatterns = [
     path('comicCharacters/<int:pk>', views.Characters, name='Characters'),
     path('addBook/', views.addBook, name='addBook'),
     path('book/<int:pk>', views.Book, name='Book'),
+    path('mis_reservas', views.MisReservas, name='MisReservas'),
+    path('process_order/', views.processOrder, name='processOrder'),
 ]

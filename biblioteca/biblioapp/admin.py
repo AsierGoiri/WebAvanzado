@@ -7,6 +7,6 @@ from django.contrib.auth.models import User
 admin.site.register(Autor)
 admin.site.register(Categoria)
 admin.site.register(Libro)
-admin.site.register(Pedido)
+admin.site.register(Reserva)
 
 # admin.site.register(User, UserAdmin)

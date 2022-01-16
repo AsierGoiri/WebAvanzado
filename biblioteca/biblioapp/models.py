@@ -30,10 +30,10 @@ class Libro(models.Model):
     def __str__(self):
         return self.titulo
 
-class Pedido(models.Model):
+class Reserva(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
-    Libro = models.ForeignKey(Libro,on_delete=models.CASCADE, default=1)
+    libro = models.ForeignKey(Libro,on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return str(self.id)

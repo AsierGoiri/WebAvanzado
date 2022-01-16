@@ -103,6 +103,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'Marvel'%}">Marvel</a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'MisReservas'%}">Mis resevas</a>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Categorias
@@ -211,7 +215,32 @@
 
   <script src="{% static 'css/index.css' %}"></script>
 
+  <script type="text/javascript">
 
+
+    var user = '{{request.user}}'
+    
+    function getToken(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    var csrftoken = getToken('csrftoken');
+    
+    
+    
+    
+  </script>
 </body>
 <!-- 
 <footer class="text-muted ">
