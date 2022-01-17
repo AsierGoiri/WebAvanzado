@@ -24,7 +24,7 @@ PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'biblioapp/static/js', 'service
 SECRET_KEY = '_=w66w)f0t5k=qpfiruk2(t#bzv##ci9_za52q1grdfrfgplae'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -98,7 +99,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'biblioteca',
-        'HOST': '127.0.0.1',
+        'HOST': 'aws-app.cobpdmmpnglk.eu-west-3.rds.amazonaws.com',
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'Kanito22',
