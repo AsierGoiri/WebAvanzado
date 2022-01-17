@@ -26,7 +26,7 @@ SECRET_KEY = '_=w66w)f0t5k=qpfiruk2(t#bzv##ci9_za52q1grdfrfgplae'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://biblioteca-asier.herokuapp.com/']
 
 
 # Application definition
